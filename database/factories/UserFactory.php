@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * Factory para la creación de usuarios de prueba
+ * 
  */
 class UserFactory extends Factory
 {
@@ -17,18 +18,18 @@ class UserFactory extends Factory
     protected static ?string $password;
 
     /**
-     * Define the model's default state.
+     * Definición del modelo de datos del usuario
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'celular' => fake()->phoneNumber(),
-            'tipo_usuario' => fake()->randomElement(['proveedor', 'analista', 'administrador']),
-            'password' => bcrypt('password123'),
+            'name' => fake()->name(), // Nombre completo del usuario 
+            'email' => fake()->unique()->safeEmail(), // Correo electrónico del usuario 
+            'celular' => fake()->phoneNumber(), // Numero celular del usuario 
+            'tipo_usuario' => fake()->randomElement(['proveedor', 'analista', 'administrador']), // Tipo de usuario que esta ingresando
+            'password' => bcrypt('password123'),  // Contraseña
         ];
     }
 

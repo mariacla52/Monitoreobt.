@@ -8,7 +8,10 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
+     * Se creó una migración para modificar la tabla users, agregando los campos celular y tipo_usuario, 
+     * necesarios para el sistema de monitoreo.
+     * Con el método up añadimos nuevas columnas
+     */ 
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -19,6 +22,7 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     * Con el método down podemos revertir los cambios eliminando los campos que agreamos.
      */
     public function down(): void
     {
