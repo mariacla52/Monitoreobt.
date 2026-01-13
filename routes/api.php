@@ -1,6 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
-Route::apiResource(name: 'v1/machines',controller: App\http\Controllers\Api\v1\MachineController::class);
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\MachineController;
+
+Route::prefix('v1')
+    ->name('api.')
+    ->group(function () {
+        Route::apiResource('machines', MachineController::class);
+    });

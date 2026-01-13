@@ -12,8 +12,12 @@ class MachineController extends Controller
      */
     public function index()
     {
-        //
+        //Vistas y lista de todas las maquines almacenadas en la DB 
+        $machines = Machine::all();
+        //Pasamos la variable machine a la vista
+        return view('machines.index', compact('machines'));
     }
+
 
     /**
      * Show the form for creating a new resource.
