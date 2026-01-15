@@ -54,7 +54,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
+    padding: 4px 16px;
     background-color: #4f79d8;
     color: white;
 }
@@ -67,28 +67,28 @@
 
 /* Logo */
 .logo {
-    height: 46px;      
+    height: 34x;      
     width: auto;        
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 /* Texto que acompaña logo */
 .brand-text {
-    line-height: 1.2;      
+    line-height: 1;      
 }
 .brand-text strong {
-    font-size: 19px;
+    font-size: 16px;
 }
 
 .brand-text small {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* Menú */
 .navbar-menu {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 12px;
     margin: 0;
     padding: 0;
 }
@@ -96,6 +96,9 @@
 .navbar-menu a {
     color: white;
     text-decoration: none;
+    font-size: 14px;
+    line-height: 1;   
+    padding: 2px 0;
 }
 
 .navbar-menu a:hover {
@@ -106,9 +109,21 @@
 footer.footer {
     background-color: #4f79d8;
     color: white;
+    padding: 8px 0;   /* controla la altura */
+    font-size: 13px;
+}
+
+/* Contenedor interno */
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
     text-align: center;
-    padding: 18px 15px;
-    font-size: 14px;
+}
+
+/* Quitar márgenes por defecto del <p> */
+footer.footer p {
+    margin: 0;       
+    padding: 0;
 }
 
 /* ---- CSS PARA MACHINES---- */
