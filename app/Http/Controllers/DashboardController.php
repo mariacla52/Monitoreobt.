@@ -9,13 +9,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        //Primer bloque del dashboard
         $totalMachines = DB::table('machines')->count();
-        // Stock crítico (cantidadactual <= 8) 
+        // Stock crítico (cantidadactual < = 8) 
         $stockCritico = DB::table('machine_products') ->where('cantidad_actual', '<=', 8) ->count();
         // Stock bajo (entre 9 y 16)
         $stockBajo = DB::table('machine_products') ->whereBetween('cantidad_actual', [9, 16]) ->count();
         // Mantenimiento (por ahora en 0)
-        $machinesMantenimiento = 0;
+        $machinesMantenimiento = Machine::where('estado_stock', 'mantenimiento')->count();
         // Bloque siguiente
         $maquinasStockCritico = DB::table('machine_products')
         ->join('machines', 'machine_products.machine_id', '=', 'machines.id')

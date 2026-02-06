@@ -1,29 +1,42 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\DashboardController;
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MachineProductController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth'])
+
     ->name('dashboard');
 
+Route::resource('machine-products', MachineProductController::class);
 
-Route::resource('machines', MachineController::class)
-    ->middleware('auth');
+Route::get('/notifications', function () {
+        return view('notifications.index');
+    })->name('notifications.index');
 
+Route::patch('/notifications/{id}/read', function ($id) {
+        $notification = Auth::user()
+            ->notifications()
+            ->where('id', $id)
+            ->firstOrFail();
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        $notification->markAsRead();
+
+        return back();
+    })->name('notifications.read');
+    
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

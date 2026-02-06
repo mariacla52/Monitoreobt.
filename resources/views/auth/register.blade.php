@@ -40,7 +40,7 @@
                 required
                 class="block mt-1 w-full border-gray-300 rounded-md shadow-sm"
             >
-                <option value="admin" selected>Administrador del software</option>
+                <option value="administrador">Administrador del software</option>
                 <option value="analista">Analista</option>
                 <option value="proveedor">Proveedor</option>
             </select>

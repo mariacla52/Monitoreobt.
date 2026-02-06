@@ -24,6 +24,19 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
+        <!-- Tipo de usuario -->
+        <div class="mt-4">
+            <x-input-label for="tipo_usuario" value="Tipo de usuario" />
+            <select id="tipo_usuario" name="tipo_usuario" class="login-select" required>
+                <option value="">Seleccione un tipo</option>
+                <option value="administrador">Administrador del sistema</option>
+                <option value="proveedor">Proveedor</option>
+                <option value="analista">Analista</option>
+            </select>
+            <x-input-error :messages="$errors->get('tipo_usuario')" class="mt-2" />
+                
+            </div>
+
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">

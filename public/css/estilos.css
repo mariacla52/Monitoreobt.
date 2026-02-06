@@ -48,40 +48,40 @@
     color: #555;
 }
 
-/* ---- CSS PARA NAVBAR ---- */
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4px 16px;
-    background-color: #4f79d8;
-    color: white;
+/* ---- CSS PARA NAVBAR ---- */ 
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 4px 16px; 
+    background-color: #4f79d8; 
+    color: white; 
 }
 
-/* Logo y texto */
-.navbar-brand {
-    display: flex;
-    align-items: center;
+/* Logo y texto */ 
+.navbar-brand { 
+    display: flex; 
+    align-items: center; 
+} 
+
+/* Logo */ 
+.logo { 
+    height: 40px;    
+    width: auto; 
+    margin-right: 8px; 
+} 
+
+/* Texto que acompaña logo */ 
+.brand-text { 
+    line-height: 1.2; 
 }
 
-/* Logo */
-.logo {
-    height: 34x;      
-    width: auto;        
-    margin-right: 8px;
-}
-
-/* Texto que acompaña logo */
-.brand-text {
-    line-height: 1;      
-}
 .brand-text strong {
     font-size: 16px;
 }
 
 .brand-text small {
-    font-size: 11px;
+    font-size: 12px;
 }
 
 /* Menú */
@@ -109,7 +109,7 @@
 footer.footer {
     background-color: #4f79d8;
     color: white;
-    padding: 8px 0;   /* controla la altura */
+    padding: 14px 0;   
     font-size: 13px;
 }
 
@@ -362,4 +362,19 @@ footer.footer p {
     border-radius: 12px;
     font-size: 12px;
     font-weight: 600;
+}
+
+/* ---- SELECT LOGIN ---- */
+.login-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.login-select:focus {
+    outline: none;
+    border-color: #4f79d8;
 }

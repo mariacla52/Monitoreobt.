@@ -13,12 +13,19 @@
     <!-- Inicio -->
     <ul class="navbar-menu">
         <li><a href="/">Inicio</a></li>
-
-         @auth
-        <li><a href="{{ route('machines.index') }}">Máquinas</a></li>
+        
+        @auth
+        <li><a href="{{ route('machine-products.index') }}">Máquinas</a></li>
 
         <!-- Notificaciones -->
-        <li class="nav-icon"> ✉ </li>
+        <li class="relative"><a href="{{ route('notifications.index') }}" class="relative inline-block">
+        ✉️
+        @if(auth()->user()->unreadNotifications->count())
+        <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2">
+            {{ auth()->user()->unreadNotifications->count() }}
+        </span>
+        @endif
+    </a></li>
 
         <!-- Perfil -->
         <li class="profile-menu">
